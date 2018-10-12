@@ -8,6 +8,13 @@ $ javac -source 1.5 -target 1.5 Prints.java
 $ javap -v Prints
 ```
 
+Using maven:
+
+```
+$ mvn clean compile
+$ javap -v target.classes.nz.zoltan.ArrayIndex
+```
+
 ```java
 public static void main( String[] args ) {
     System.out.println( "Hello World!" );
@@ -71,4 +78,44 @@ public static void main(String[] args) {
         44: aload_1
         45: invokevirtual #13                 // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
         48: return
+```
+
+```java
+public static void main(String[] args) {
+    ArrayList<Integer> integers = new ArrayList<Integer>();
+    integers.add(1);
+    integers.add(2);
+    integers.add(3);
+    System.out.println(integers.get(0));
+}
+```
+
+```text
+    Code:
+      stack=3, locals=2, args_size=1
+         0: new           #2                  // class java/util/ArrayList
+         3: dup
+         4: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+         7: astore_1
+         8: aload_1
+         9: iconst_1
+        10: invokestatic  #4                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        13: invokevirtual #5                  // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+        16: pop
+        17: aload_1
+        18: iconst_2
+        19: invokestatic  #4                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        22: invokevirtual #5                  // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+        25: pop
+        26: aload_1
+        27: iconst_3
+        28: invokestatic  #4                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        31: invokevirtual #5                  // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+        34: pop
+        35: getstatic     #6                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        38: aload_1
+        39: iconst_0
+        40: invokevirtual #7                  // Method java/util/ArrayList.get:(I)Ljava/lang/Object;
+        43: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+        46: return
 ```
