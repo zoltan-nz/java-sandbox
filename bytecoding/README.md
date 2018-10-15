@@ -16,12 +16,11 @@ $ javap -v target.classes.nz.zoltan.ArrayIndex
 ```
 
 ```java
-public static void main( String[] args ) {
-    System.out.println( "Hello World!" );
-    System.out.println( 1 );
-    System.out.println( true );
-    System.out.println( 1.1314 );
-}
+System.out.println( "Hello World!" );
+System.out.println( 1 );
+System.out.println( true );
+System.out.println( 1.1314 );
+
 ```
 
 ```text
@@ -43,13 +42,12 @@ public static void main( String[] args ) {
 ```
 
 ```java
-public static void main(String[] args) {
-    ArrayList<Double> doubles = new ArrayList<Double>();
-    doubles.add(1.2);
-    doubles.add(2.3);
-    doubles.add(3.4);
-    System.out.println(doubles);
-}
+ArrayList<Double> doubles = new ArrayList<Double>();
+doubles.add(1.2);
+doubles.add(2.3);
+doubles.add(3.4);
+System.out.println(doubles);
+
 ```
 
 ```text
@@ -81,13 +79,11 @@ public static void main(String[] args) {
 ```
 
 ```java
-public static void main(String[] args) {
-    ArrayList<Integer> integers = new ArrayList<Integer>();
-    integers.add(1);
-    integers.add(2);
-    integers.add(3);
-    System.out.println(integers.get(0));
-}
+ArrayList<Integer> integers = new ArrayList<Integer>();
+integers.add(1);
+integers.add(2);
+integers.add(3);
+System.out.println(integers.get(0));
 ```
 
 ```text
@@ -118,4 +114,51 @@ public static void main(String[] args) {
         40: invokevirtual #7                  // Method java/util/ArrayList.get:(I)Ljava/lang/Object;
         43: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
         46: return
+```
+
+```java
+TreeMap<String, Object> treeMap = new TreeMap<String, Object>();
+treeMap.put("key", 4);
+System.out.println(treeMap);
+```
+
+```text
+    Code:
+      stack=3, locals=2, args_size=1
+         0: new           #2                  // class java/util/TreeMap
+         3: dup
+         4: invokespecial #3                  // Method java/util/TreeMap."<init>":()V
+         7: astore_1
+         8: aload_1
+         9: ldc           #4                  // String key
+        11: iconst_4
+        12: invokestatic  #5                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        15: invokevirtual #6                  // Method java/util/TreeMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        18: pop
+        19: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        22: aload_1
+        23: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+        26: return
+```
+
+```java
+ArrayList<Integer> arrayList = new ArrayList<Integer>(Collections.nCopies(8, 3));
+System.out.println(arrayList);
+```
+
+```text
+    Code:
+      stack=4, locals=2, args_size=1
+         0: new           #2                  // class java/util/ArrayList
+         3: dup
+         4: bipush        8
+         6: iconst_3
+         7: invokestatic  #3                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        10: invokestatic  #4                  // Method java/util/Collections.nCopies:(ILjava/lang/Object;)Ljava/util/List;
+        13: invokespecial #5                  // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+        16: astore_1
+        17: getstatic     #6                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        20: aload_1
+        21: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+        24: return
 ```

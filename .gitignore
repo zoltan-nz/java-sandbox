@@ -2,4 +2,7 @@
 target
 *.iml
 *.class
-
+.classpath
+.project
+.settings
+.vscode
